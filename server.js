@@ -2,7 +2,7 @@
 const express = require('express');
 const http = require('http');
 const path = require('path');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const { nanoid } = require('nanoid');
 const { Server } = require('socket.io');
 const { db, init } = require('./db');
