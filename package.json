@@ -1,0 +1,20 @@
+{
+  "name": "smart-food-waste-mvp",
+  "version": "1.0.0",
+  "description": "Minimal Smart Food Waste Donation MVP (HTML/CSS/JS + Node.js)",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "express": "^4.18.2",
+    "lowdb": "^5.0.0",
+    "nanoid": "^4.0.0",
+    "socket.io": "^4.7.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
+  }
+}

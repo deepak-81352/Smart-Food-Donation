@@ -1,0 +1,87 @@
+{
+  "users": [
+    {
+      "id": "BuU2xEvbtzWrV-2JYEcBc",
+      "name": "deepak",
+      "email": "deepakjatt153@gmail.com",
+      "passwordHash": "$2b$10$xR5oGLd7wRJ9YUKvaA.VAOCayTmtg2MgCmImSk29LwsZSxYYZkNPa",
+      "role": "donor",
+      "createdAt": "2025-09-22T07:38:44.574Z"
+    },
+    {
+      "id": "CdJ8_vovhvOYlGr-tNRuZ",
+      "name": "sourav singh",
+      "email": "deepaksingh567845@gmail.com",
+      "passwordHash": "$2b$10$5mIAEFRwq0/3dmMQ3m68x.gc7LTaxbZNl7p6sNE1.dbXy8elIq4DW",
+      "role": "ngo",
+      "createdAt": "2025-09-22T07:49:56.082Z"
+    },
+    {
+      "id": "bDx13OAE4gZDqBE7krIJG",
+      "name": "Manish ",
+      "email": "20manish20kumar20@gmail.com",
+      "passwordHash": "$2b$10$3i72OpunUF.HVf9zt9HRFuXHUtBow2OmEW7ekk4jchDWdEdCRg9xa",
+      "role": "volunteer",
+      "createdAt": "2025-09-23T16:45:03.409Z"
+    }
+  ],
+  "listings": [
+    {
+      "id": "KY_0_Z9W1_eq3H_92_zpn",
+      "donorId": "BuU2xEvbtzWrV-2JYEcBc",
+      "title": "Fast Food",
+      "description": "Burger",
+      "quantity": "5pcs",
+      "location": {
+        "lng": 0,
+        "lat": 0
+      },
+      "pickupWindow": {
+        "start": null,
+        "end": null
+      },
+      "status": "accepted",
+      "acceptedBy": "bDx13OAE4gZDqBE7krIJG",
+      "createdAt": "2025-09-23T16:47:53.073Z",
+      "acceptedAt": "2025-09-23T16:48:49.768Z"
+    },
+    {
+      "id": "HiBL3ojfnbRz2vlouak6f",
+      "donorId": "BuU2xEvbtzWrV-2JYEcBc",
+      "title": "Food",
+      "description": "Pizza",
+      "quantity": "10 pcs",
+      "location": {
+        "lng": 0,
+        "lat": 0
+      },
+      "pickupWindow": {
+        "start": null,
+        "end": null
+      },
+      "status": "accepted",
+      "acceptedBy": "CdJ8_vovhvOYlGr-tNRuZ",
+      "createdAt": "2025-09-22T07:45:49.068Z",
+      "acceptedAt": "2025-09-22T07:52:45.595Z"
+    },
+    {
+      "id": "215K0kOjcKJNg7qQQ5V6-",
+      "donorId": "BuU2xEvbtzWrV-2JYEcBc",
+      "title": "Food",
+      "description": "Pizza",
+      "quantity": "10 pcs",
+      "location": {
+        "lng": 0,
+        "lat": 0
+      },
+      "pickupWindow": {
+        "start": null,
+        "end": null
+      },
+      "status": "accepted",
+      "acceptedBy": "CdJ8_vovhvOYlGr-tNRuZ",
+      "createdAt": "2025-09-22T07:45:20.737Z",
+      "acceptedAt": "2025-09-22T07:52:57.201Z"
+    }
+  ]
+}
