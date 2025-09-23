@@ -8,7 +8,7 @@
     "dev": "nodemon server.js"
   },
   "dependencies": {
-    "bcryptjs": "^2.5.0",
+    "bcryptjs": "^3.0.2",
     "express": "^4.18.2",
     "lowdb": "^5.0.0",
     "nanoid": "^4.0.0",
