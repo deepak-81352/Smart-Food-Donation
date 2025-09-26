@@ -94,6 +94,7 @@ async function loadListings() {
       <div class="small">Status: ${l.status} • Posted: ${new Date(l.createdAt).toLocaleString()}</div>
       <div>${escapeHtml(l.description)}</div>
       <div class="small">Quantity: ${escapeHtml(l.quantity || '')}</div>
+        <div class="small">Address: ${escapeHtml(l.address || '')}</div>  <!-- display address -->
     `;
     if (l.status === 'available' && currentUser && currentUser.role !== 'donor') {
       const btn = document.createElement('button');
