@@ -79,8 +79,9 @@ app.post('/api/listings', async (req, res) => {
     title,
     description: description || '',
     quantity: quantity || '',
-    location: { lng: parseFloat(lng) || 0, lat: parseFloat(lat) || 0 },
-    pickupWindow: { start: pickupWindowStart || null, end: pickupWindowEnd || null },
+    address: req.body.address || '',
+    // location: { lng: parseFloat(lng) || 0, lat: parseFloat(lat) || 0 },
+    // pickupWindow: { start: pickupWindowStart || null, end: pickupWindowEnd || null },
     status: 'available',
     acceptedBy: null,
     createdAt: new Date().toISOString()
@@ -111,24 +112,43 @@ app.get('/api/listings/:id', async (req, res) => {
 });
 
 app.post('/api/listings/:id/accept', async (req, res) => {
-  // body: { userId }
   const listingId = req.params.id;
   const { userId } = req.body;
+
   await db.read();
-  const listing = db.data.listings.find(l => l.id === listingId);
-  if (!listing) return res.status(404).json({ error: 'not found' });
-  if (listing.status !== 'available') return res.status(400).json({ error: 'not available' });
+
+  // Find listing index instead of just object
+  const index = db.data.listings.findIndex(l => l.id === listingId);
+  if (index === -1) return res.status(404).json({ error: 'Listing not found' });
+
+  const listing = db.data.listings[index];
+  if (listing.status !== 'available') {
+    return res.status(400).json({ error: 'Listing not available' });
+  }
+
+  // Update info before removing
   listing.status = 'accepted';
   listing.acceptedBy = userId;
   listing.acceptedAt = new Date().toISOString();
+
+  // --- OPTION A: Permanently delete ⚡ ---
+  // db.data.listings.splice(index, 1);
+
+  // --- OPTION B: Move to completed (recommended) ✅ ---
+  if (!db.data.completedListings) db.data.completedListings = [];
+  db.data.completedListings.push(listing);
+  db.data.listings.splice(index, 1);
+
   await db.write();
 
-  // notify donor and others
+  // Notify via socket
   broadcastEvent('listing_accepted', { listingId, by: userId });
 
-  res.json({ listing });
+  res.json({ 
+    message: "Listing accepted and removed from active listings",
+    listing 
+  });
 });
-
 // mark picked
 app.post('/api/listings/:id/mark-picked', async (req, res) => {
   const listingId = req.params.id;
